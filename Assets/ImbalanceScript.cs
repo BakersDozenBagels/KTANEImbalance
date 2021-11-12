@@ -28,11 +28,11 @@ public class ImbalanceScript : MonoBehaviour
         _chosenB = Random.Range(0, 128);
         _textA.text = _chosenA.ToImbalance();
         _textB.text = _chosenB.ToImbalance();
-        //Debug.LogFormat("[Imbalance #{0}] The top screen is displaying: \"{1}\"", _id, _textA.text);
-        //Debug.LogFormat("[Imbalance #{0}] The bottom screen is displaying: \"{1}\"", _id, _textB.text);
+        Debug.LogFormat("[Imbalance #{0}] The top screen is displaying: \"{1}\"", _id, _textA.text);
+        Debug.LogFormat("[Imbalance #{0}] The bottom screen is displaying: \"{1}\"", _id, _textB.text);
 
         _solution = _chosenA * _chosenB;
-        //Debug.LogFormat("[Imbalance #{0}] The expected solution is: \"{1}\"", _id, _solution);
+        Debug.LogFormat("[Imbalance #{0}] The expected solution is: \"{1}\"", _id, _solution);
 
         _button.OnInteract += () => Press();
         _button.OnInteractEnded += () => StartCoroutine(Animate(false));
@@ -71,13 +71,13 @@ public class ImbalanceScript : MonoBehaviour
 
         if(!_solution.ToString().StartsWith(_textA.text))
         {
-            //Debug.LogFormat("[Imbalance #{0}] You entered \"{1}\", which was incorrect.", _id, _textA.text);
+            Debug.LogFormat("[Imbalance #{0}] You entered \"{1}\", which was incorrect.", _id, _textA.text);
             _module.HandleStrike();
             _textA.text = _chosenA.ToImbalance();
         }
         if(_solution.ToString() == _textA.text)
         {
-            //Debug.LogFormat("[Imbalance #{0}] You entered \"{1}\", which was correct. Solved.", _id, _textA.text);
+            Debug.LogFormat("[Imbalance #{0}] You entered \"{1}\", which was correct. Solved.", _id, _textA.text);
             _module.HandlePass();
             _isSolved = true;
             StartCoroutine(FadeOut());

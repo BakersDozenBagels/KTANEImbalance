@@ -20,6 +20,6 @@ MonoBehaviour:
 
     This is a Manual Challenge! This means that the community must deduce the rules
     of this module using nothing but the module itself. Best of luck!'
-  version: v1.2
+  version: V1.3
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 71c32ca88b8c2154fbe330a978f6791e, type: 3}
